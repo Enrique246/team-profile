@@ -1,51 +1,60 @@
 // Manager card builder
 const genManager = function (man) {
     return `
-    <div class= "card bg-success text-white m-2" >
-        <div class="card-header">
+    <div class= "col-4 mt-4 " >
+    <div class="card h-100">
+        <div class="card-header bg-success text-white">
         <h4>${man.name}</h4>
-        <h5>Manager</h5><i class="fas fa-fingerprint"></i>
+        <h5>Manager&nbsp;&nbsp;<i class="fas fa-fingerprint"></i></h5>
         </div>
 
-        <div class="card-body">
+        <div class="card-body bg-light text-black">
             <p class="id">Id: ${man.id}</p>
             <p class="email">Email: <a href="mail-to:${man.email}">${man.email}</a></p>
             <p class="officeNum">Office Number: ${man.officeNumber}</p>
+        </div>
     </div>
-    `;
+    </div>    `;
 }
 
 //Engineer card builder
 const genEngineer = function (engineer) {
     return `
-    <div class= "card bg-success text-white m-2" >
-        <div class="card-header">
+    <div class= "col-4 mt-4" >
+    <div class="card h-100">
+        <div class="card-header bg-success text-white">
         <h4>${engineer.name}</h4>
-        <h5>Engineer</h5><i class="fas fa-tools"></i>
+        <h5>Engineer&nbsp;&nbsp;<i class="fas fa-tools"></i></h5>
         </div>
 
-        <div class="card-body">
+        <div class="card-body bg-light text-black">
             <p class="id">Id: ${engineer.id}</p>
             <p class="email">Email: <a href="mail-to:${engineer.email}">${engineer.email}</a></p>
             <p class="github">GitHub: <a href="https://github.com/${engineer.gitHub}">${engineer.gitHub}</a></p>
             </div>
+        </div>
+        </div>
     `;
 }
 
 //Engineer card builder
 const genIntern = function (intern) {
     return `
-    <div class= "card bg-success text-white m-2" >
-        <div class="card-header">
+    <div class= "col-4 mt-4" >
+    <div class="card h-100">
+        <div class="card-header bg-success text-white">
         <h4>${intern.name}</h4>
-        <h5>Intern</h5><<i class="fas fa-baby"></i>
+        <h5>Intern&nbsp;&nbsp;<i class="fas fa-baby"></i></h5>
         </div>
 
-        <div class="card-body">
+        <div class="card-body bg-light text-black">
             <p class="id">Id: ${intern.id}</p>
-            <p class="email">Email: <a href="mail-to:${intern.email}">${man.email}</a></p>
+            <p class="email">Email: <a href="mail-to:${intern.email}">${intern.email}</a></p>
             <p class="school">School: ${intern.school}</p>
             </div>
+        </div>
+        </div>
+
     `;
 };
 
@@ -93,7 +102,12 @@ const newTeamPage = function (empCards){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous"
+  />
 
     <link rel="stylesheet" href="style.css">
 
@@ -108,7 +122,7 @@ const newTeamPage = function (empCards){
 
     <section> 
     <div class="box">
-              <div class="row justify-content-center" id="team-cards">
+              <div class="row justify-content-center">
                   <!--Finished Cards-->
                   ${empCards}
               </div>
@@ -117,6 +131,7 @@ const newTeamPage = function (empCards){
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 </html>
     `
