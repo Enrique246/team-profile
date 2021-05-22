@@ -34,12 +34,12 @@ const aManager = () => {
         type: "input",
         message: "What is the id of the manager?",
         name: "id",
-        validate: (nInput) => {
+        validate: nInput => {
           if (isNaN(nInput)) {
-            return true;
-          } else {
             console.log("If you please enter an id of a manager!");
             return false;
+          } else {
+            return true;
           }
         },
       },
@@ -59,7 +59,7 @@ const aManager = () => {
       },
       {
         type: "input",
-        message: "What is the id of the manager?",
+        message: "What is the office number of the manager?",
         name: "officeNumber",
         validate: (nInput) => {
           if (nInput) {
@@ -75,7 +75,7 @@ const aManager = () => {
       const { name, id, email, officeNumber } = manInput;
       const man = new Manager(name, id, email, officeNumber);
 
-      teamArray.push(man);
+      tArray.push(man);
       console.log(man);
     });
 };
@@ -89,36 +89,37 @@ const aEmployee = () => {
     =================
     `);
 
-  return inquirer.prompt([
-    {
-      type: "list",
-      message: "Choose the type of employee you would like to add",
-      name: "role",
-      choices: ["Engineer", "Intern"],
-    },
-    {
-      type: "input",
-      message: "What is the name of the employee?",
-      name: "name",
-      validate: (nInput) => {
-        if (nInput) {
-          return true;
-        } else {
-          console.log("Enter employee's name!");
-          return false;
-        }
+  return inquirer
+    .prompt([
+      {
+        type: "list",
+        message: "Choose the type of employee you would like to add",
+        name: "role",
+        choices: ["Engineer", "Intern"],
       },
-    },
-    {
+      {
+        type: "input",
+        message: "What is the name of the employee?",
+        name: "name",
+        validate: (nInput) => {
+          if (nInput) {
+            return true;
+          } else {
+            console.log("Enter employee's name!");
+            return false;
+          }
+        },
+      },
+      {
         type: "input",
         message: "What is the id of the employee?",
         name: "id",
         validate: (nInput) => {
           if (isNaN(nInput)) {
-            return true;
-          } else {
-            console.log("If you please enter an id of an employee!");
+            console.log("If you please enter an id of a manager!");
             return false;
+          } else {
+            return true;
           }
         },
       },
@@ -141,12 +142,11 @@ const aEmployee = () => {
         message: "Enter employee's github username?",
         name: "gitHub",
         when: (input) => input.role === "Engineer",
-        validate: (nInput) => {
+        validate: nInput => {
           if (isNaN(nInput)) {
             return true;
           } else {
             console.log("If you please enter the gitHub username!");
-            return false;
           }
         },
       },
@@ -154,7 +154,7 @@ const aEmployee = () => {
         type: "input",
         message: "What is the intern's school?",
         name: "school",
-        when: (input)=> input.role === "Intern",
+        when: (input) => input.role === "Intern",
         validate: (nInput) => {
           if (nInput) {
             return true;
@@ -165,29 +165,29 @@ const aEmployee = () => {
         },
       },
       {
-        type: 'confirm',
-        name: 'CaddEmployee',
-        message: 'Are there more members in your team?',
-        default: false
-    }
-  ])
-  .then (empData => {
-      let {name,id,email,role,gitHub,school,CaddEmployee} = empData;
+        type: "confirm",
+        name: "CaddEmployee",
+        message: "Are there more members in your team?",
+        default: false,
+      },
+    ])
+    .then((empData) => {
+      let { name, id, email, role, gitHub, school, CaddEmployee } = empData;
       let emp;
       if (role === "Engineer") {
-          emp = new Engineer (name, id, email, gitHub);
-          console.log(employee);
+        emp = new Engineer(name, id, email, gitHub);
+        console.log(emp);
       } else if (role === "Intern") {
-          emp = new Intern (name, id, email, school);
-          console.log(emp);
+        emp = new Intern(name, id, email, school);
+        console.log(emp);
       }
-      tArray.push(employee);
-      if (CaddEmployee){
-          return aEmployee(tArray);
+      tArray.push(emp);
+      if (CaddEmployee) {
+        return aEmployee(tArray);
       } else {
-          return tArray;
+        return tArray;
       }
-  })
+    });
 };
 
   const wFile = data => {
