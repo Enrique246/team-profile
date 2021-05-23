@@ -3,10 +3,16 @@ const Eng = require('../lib/Engineer');
 it('Builds an engineer object', () => {
     const eng = new Eng('Enrique', 28, 'enrique@gmail.com', 'enrique245')
 
-    expect(emp.gitHub).toEqual(expect.any(String));
+    expect(eng.gitHub).toEqual(expect.any(String));
 });
 
-it('Brings employee email', () => {
-    const emp = new Eng('Enrique', 28, 'enrique@gmail.com','enrique245');
-    expect (emp.getEmail()).toEqual(expect.stringContaining(emp.email.toString()));
+it('Brings engineer Github', () => {
+    const eng = new Eng('Enrique', 28, 'enrique@gmail.com','enrique245');
+    expect (eng.getGitHub()).toEqual(expect.stringContaining(eng.gitHub.toString()));
+});
+
+//Getting role
+it('Brings engineer role', () => {
+    const eng = new Eng('Enrique', 28, 'enrique@gmail.com','enrique245');
+    expect (eng.getRole()).toEqual("Engineer");
 });

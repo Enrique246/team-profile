@@ -28,7 +28,7 @@ it('Brings employee email', () => {
     expect (emp.getEmail()).toEqual(expect.stringContaining(emp.email.toString()));
 });
 
-//Getting email
+//Getting role
 it('Brings employee role', () => {
     const emp = new Emp('Enrique', 28, 'enrique@gmail.com');
     expect (emp.getRole()).toEqual("Employee");
