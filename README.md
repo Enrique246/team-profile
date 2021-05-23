@@ -3,7 +3,7 @@
 ## Team Profile Generator
 ### Description
 - What was your motivation?
-  - Learning to build a complete app with test verification.
+  - Learning to build a complete app with test verification as a feature.
 - Why did you build this project?  
   - To undesterstand how html, test nad java script connect to get a working app.
 - What problem does it solve?
