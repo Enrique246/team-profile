@@ -2,7 +2,6 @@
 
 ## Team Profile Generator
 ### Description
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 - What was your motivation?
   - Learning to build a complete app with test verification.
 - Why did you build this project?  
